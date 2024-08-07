@@ -1,8 +1,13 @@
 #!/usr/bin/python
 from math import factorial
+"""Pascal Triangle"""
 
 
 def pascal_triangle(n):
+    """
+    returns a lists of integers
+    representing the Pascal’s triangle
+    """
     li = []
     for i in range(1, n+1):
         comp = []
