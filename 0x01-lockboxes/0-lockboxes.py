@@ -4,11 +4,14 @@
 
 def canUnlockAll(boxes):
     """Determine if all boxes can be unlocked"""
-    keys = set()
-    keys.add(0)
-    n = len(boxes)
-    for i, box in enumerate(boxes):
-        for com in box:
-            if com not in keys and (com - 1) < n and com != i:
-                keys.add(com)
-    return n == len(keys)
+    keys = set([0])
+    return recursive(0, boxes, keys)
+
+
+def recursive(onKey, boxes, keys):
+    """recursive functoion to help solving the problem"""
+    for com in boxes[onKey]:
+        if com not in keys and com != onKey:
+            keys.add(com)
+            recursive(com, boxes, keys)
+    return len(boxes) == len(keys)
