@@ -5,6 +5,8 @@
 def canUnlockAll(boxes):
     """Determine if all boxes can be unlocked"""
     keys = set([0])
+    if len(boxes) == 0:
+        return False
     return recursive(0, boxes, keys)
 
 
