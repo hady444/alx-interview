@@ -13,7 +13,7 @@ def canUnlockAll(boxes):
 def recursive(onKey, boxes, keys):
     """recursive functoion to help solving the problem"""
     for com in boxes[onKey]:
-        if com not in keys and com != onKey:
+        if com not in keys and com != onKey and com > -1 and com < len(boxes):
             keys.add(com)
             recursive(com, boxes, keys)
     return len(boxes) == len(keys)
