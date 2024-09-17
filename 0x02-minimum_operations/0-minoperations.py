@@ -9,34 +9,17 @@ def minOperations(n=0):
     Returns an integer
     If n is impossible to achieve, return 0
     """
-    prim = findSmallestPrim(n)
-    operatinos, chars = prim, prim
-
-    if chars < n:
-        toCopy = prim
-        operatinos += 1
-
-    while (chars < n):
-        if (n / chars) == prim:
-            if n - chars == prim:
-                return operatinos + 1
-            return operatinos + 2
-        else:
-            operatinos += 1
-            chars += toCopy
-    if chars == n:
-        return operatinos
-    else:
+    if n <= 1:
         return 0
-
-
-def findSmallestPrim(n):
-    """
-    Custimizied prim factorizatino algorithm to find minimum one
-    """
-    divisor = 2
-    while n > 1:
-        while n % divisor == 0:
-            return (divisor)
-        divisor += 1
-    return divisor
+    H = 1
+    toPaste = 0
+    count = 0
+    while H < n:
+        if n % H == 0:
+            count += 2
+            toPaste = H
+            H = 2 * H
+        else:
+            count += 1
+            H += toPaste
+    return count
