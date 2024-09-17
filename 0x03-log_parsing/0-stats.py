@@ -1,12 +1,11 @@
 #!/usr/bin/python3
 """ Log Parsing with re Module """
 import re
-#import sys
 
 
 def printFun(fileSize, statusDic):
     ''' Function to print output'''
-    print("File size =", fileSize)
+    print("File size:", fileSize)
     for key, value in statusDic.items():
         if value > 0:
             print(f'{key}: {value}')
@@ -32,7 +31,7 @@ def main():
     fileSize = 0
     try:
         while True:
-            readLine = input() # sys.stdin.readline()
+            readLine = input()
             result = re.match(lineValidate, readLine)
             if result:
                 if result.group(3) in status:
