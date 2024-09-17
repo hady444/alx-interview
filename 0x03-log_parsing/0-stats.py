@@ -40,7 +40,7 @@ def main():
             lines += 1
             if lines % 10 == 0:
                 printFun(fileSize, statusDic)
-    except KeyboardInterrupt, EOFError:
+    except (KeyboardInterrupt,  EOFError):
         printFun(fileSize, statusDic)
 
 
