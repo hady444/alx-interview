@@ -86,4 +86,4 @@ def island_perimeter(grid):
     elif searchVer:
         height, forr, direction = s_v(grid, r, c, -1, -1, directions)
         width, forc, direction = s_h(grid, r, c, direction, forr, directions)
-    return 2 * width + 2 * height if ((height > 0) and (width > 0)) else 0
+    return 2 * width + 2 * height
